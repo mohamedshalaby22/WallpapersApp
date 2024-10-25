@@ -19,8 +19,8 @@ class AppTextFormField extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 15),
               child: TextFormField(
                 cursorColor: ConstantsColors.primaryColor,
-                obscureText: isShowSuffixIcon ? !isShowPassword : false,
                 style: const TextStyle(color: Colors.grey),
+                obscureText: isShowSuffixIcon ? !isShowPassword : false,
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsetsDirectional.symmetric(
                       horizontal: 20, vertical: 8),

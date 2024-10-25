@@ -1,13 +1,13 @@
 import 'package:wallpapers_app/Helpers/Extensions/SizedBox.dart';
 import 'package:wallpapers_app/Views/AppWidgets/app_button.dart';
 import 'package:flutter/material.dart';
-import '../../AppWidgets/special_appbar.dart';
-import 'widgets/login_screen_all_text_form_fields.dart';
-import 'widgets/have_an_account_text.dart';
-import 'widgets/login_screen_forgot_password_text.dart';
-import 'widgets/login_screen_social_buttons.dart';
-import 'widgets/special_started_text.dart';
-import 'widgets/or_continue_social_text.dart';
+import '../../../AppWidgets/special_appbar.dart';
+import '../widgets/login_screen_all_text_form_fields.dart';
+import '../widgets/have_an_account_text.dart';
+import '../widgets/login_screen_forgot_password_text.dart';
+import '../widgets/login_screen_social_buttons.dart';
+import '../widgets/special_started_text.dart';
+import '../widgets/or_continue_social_text.dart';
 import 'register_screen.dart';
 
 class LoginScreen extends StatelessWidget {

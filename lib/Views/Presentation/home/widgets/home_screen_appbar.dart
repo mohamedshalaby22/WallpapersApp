@@ -3,8 +3,8 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:wallpapers_app/Constants/constants_paths.dart';
 import 'package:iconify_flutter/icons/nimbus.dart';
 
-class SpecialHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const SpecialHomeAppBar({super.key});
+class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const HomeScreenAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:wallpapers_app/Helpers/Extensions/SizedBox.dart';
-import 'widgets/special_home_appbar.dart';
+import 'package:wallpapers_app/Views/Presentation/home/widgets/special_image_widget.dart';
+import '../Screens/wallpaper_details_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+class HomeScreenWallpapersList extends StatelessWidget {
+  HomeScreenWallpapersList({super.key});
   List<String> images = [
     'https://images.unsplash.com/photo-1727374703446-432a38041d0e?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'https://images.unsplash.com/photo-1728327511232-f387c138a097?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D',
@@ -15,34 +15,25 @@ class HomeScreen extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const SpecialHomeAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            20.height,
-            Expanded(
-              child: MasonryGridView.builder(
-                itemCount: images.length,
-                gridDelegate:
-                    const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2),
-                mainAxisSpacing: 15,
-                crossAxisSpacing: 15,
-                itemBuilder: (context, index) {
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.network(
-                      images[index],
-                      fit: BoxFit.contain,
-                    ),
-                  );
-                },
-              ),
-            )
-          ],
-        ),
+    return Expanded(
+      child: MasonryGridView.builder(
+        itemCount: images.length,
+        gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2),
+        mainAxisSpacing: 15,
+        crossAxisSpacing: 15,
+        itemBuilder: (context, index) {
+          return SpecialImageWidget(
+            imageUrl: images[index],
+            isPremium: index.isEven,
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      WallpaperDetailsScreen(image: images[index])));
+            },
+            onSelectFavorite: () {},
+          );
+        },
       ),
     );
   }

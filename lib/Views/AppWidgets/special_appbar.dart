@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:wallpapers_app/Views/AppWidgets/special_icon.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 
-class SpecialAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
-  const SpecialAppBar({super.key});
-
+class SpecialAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const SpecialAppBar({super.key, this.isShowSuffixAppbarIcon = false});
+  final bool isShowSuffixAppbarIcon;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -11,20 +12,24 @@ class SpecialAppBar extends StatelessWidget
       elevation: 0.0,
       automaticallyImplyLeading: false,
       centerTitle: false,
-      title: GestureDetector(
-        onTap: (){
-          Navigator.pop(context);
-        },
-        child: Container(
-            padding: const EdgeInsetsDirectional.all(7),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.grey[100],
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          specialIcon(
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          Visibility(
+            visible: isShowSuffixAppbarIcon,
+            child: specialIcon(
+              icon: Mdi.filter_menu_outline,
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
-            child: Icon(
-              Icons.chevron_left,
-              color: Colors.grey[600]!,
-            )),
+          ),
+        ],
       ),
     );
   }
