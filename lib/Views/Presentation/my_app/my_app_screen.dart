@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:wallpapers_app/Controllers/app_layout_controller.dart';
-import 'package:wallpapers_app/Views/Presentation/authentication/Screens/register_screen.dart';
-import 'app_layout_screen.dart';
+import 'package:wallpapers_app/Controllers/auth/register_controller.dart';
+import 'package:wallpapers_app/Helpers/Services/app_services.dart';
 import 'package:provider/provider.dart';
+import 'package:wallpapers_app/Views/Presentation/my_app/splash_screen.dart';
+import '../../../Controllers/auth/login_controller.dart';
 
 class MyAppScreen extends StatefulWidget {
   const MyAppScreen({super.key});
@@ -30,9 +32,12 @@ class _MyAppScreenState extends State<MyAppScreen> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => AppLayoutController()),
+        ChangeNotifierProvider(create: (context) => RegisterController()),
+        ChangeNotifierProvider(create: (context) => LoginController()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        navigatorKey: AppServices.navigatorKey,
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
           appBarTheme: const AppBarTheme(
@@ -44,7 +49,7 @@ class _MyAppScreenState extends State<MyAppScreen> {
             ),
           ),
         ),
-        home: const RegisterScreen(),
+        home: const SplashScreen(),
       ),
     );
   }
