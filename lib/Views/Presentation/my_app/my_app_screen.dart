@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:wallpapers_app/Controllers/app_layout_controller.dart';
+import 'package:wallpapers_app/Views/Presentation/authentication/Screens/register_screen.dart';
 import 'app_layout_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -43,7 +44,7 @@ class _MyAppScreenState extends State<MyAppScreen> {
             ),
           ),
         ),
-        home: const AppLayoutScreen(),
+        home: const RegisterScreen(),
       ),
     );
   }
