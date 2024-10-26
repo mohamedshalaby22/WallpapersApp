@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/search_screen_appbar.dart';
+import '../widgets/search_screen_wallpaper_list.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -12,9 +13,7 @@ class SearchScreen extends StatelessWidget {
         appBar: const SearchScreenAppBar(),
         body: TabBarView(
           children: [
-            Container(
-              color: Colors.red[200],
-            ),
+            SearchScreenWallpaperList(),
             Container(
               color: Colors.yellow[200],
             ),

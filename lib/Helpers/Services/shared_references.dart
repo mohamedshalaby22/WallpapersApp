@@ -14,4 +14,9 @@ class SharedPreferencesStorage {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool(loginKey) ?? false; // Default to false if not set
   }
+
+  static Future clearPref() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.clear(); // Default to false if not set
+  }
 }

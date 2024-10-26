@@ -1,16 +1,33 @@
-# wallpapers_app
+## Wallpaper App
 
-A new Flutter project.
+This is a Flutter application that allows users to browse and manage wallpapers. The app includes features such as user authentication (login and registration), a native splash screen, a wallpapers page, a favorites page, image preview functionality, a download button, a search page, and a logout feature.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **Native Splash Screen**
+    - A visually appealing splash screen that appears on app launch.
 
-A few resources to get you started if this is your first Flutter project:
+- **User Authentication**
+   - Login and Registration: Users can create an account and log in to access personalized features.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Wallpapers Page**
+    - Browse a collection of wallpapers, displayed in a grid format.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Favorites Page**
+    - Users can save their favorite wallpapers for quick access.
+
+- **Image Preview Page**
+    - View a larger version of the wallpaper with details and options to download.
+
+- **Download Button**
+    - Users can download wallpapers directly to their device.
+
+- **Search Page**
+    - A search feature to find wallpapers based on keywords.
+
+- **Logout Feature**
+    - Users can log out of the application with a confirmation dialog.
+
+- **No Connection Feature**
+    - Users can check if the internet not found Ui Only.
+

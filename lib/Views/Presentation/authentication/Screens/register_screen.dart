@@ -34,10 +34,8 @@ class RegisterScreen extends StatelessWidget {
                   AppButton(
                       text: 'Register',
                       onTap: () async {
-                        if (registerController.formKey.currentState!
-                            .validate()) {
-                          await registerController.register(context: context);
-                        }
+                        await registerController.checkValidationsAndRegister(
+                            context: context);
                       }),
                   55.height,
                   orContinueWithSocialText(),

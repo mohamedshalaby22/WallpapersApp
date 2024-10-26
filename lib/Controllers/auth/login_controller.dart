@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wallpapers_app/Helpers/Services/shared_references.dart';
-import 'package:wallpapers_app/Views/Presentation/home/Screens/home_screen.dart';
+import 'package:wallpapers_app/Views/Presentation/my_app/app_layout_screen.dart';
 import '../../Views/AppWidgets/snack_bar_widget.dart';
 
 class LoginController extends ChangeNotifier {
@@ -26,8 +25,12 @@ class LoginController extends ChangeNotifier {
       // Return Success message
       SnackBarWidget.showSnackBarWidget(message: 'Sign In Successfully!');
       if (context.mounted) {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()));
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const AppLayoutScreen(
+
+                    )));
       }
       return null; // Success
     } on FirebaseAuthException catch (e) {
@@ -40,7 +43,10 @@ class LoginController extends ChangeNotifier {
 
   Future checkValidationsAndLogin({required BuildContext context}) async {
     if (formKey.currentState!.validate()) {
-      await login(context: context);
+      await login(context: context).then((value) {
+        emailController.clear();
+        passwordController.clear();
+      });
     }
   }
 }

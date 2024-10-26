@@ -5,7 +5,6 @@ import '../widgets/home_screen_appbar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +14,8 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             20.height,
-            HomeScreenWallpapersList(),
+            const HomeScreenWallpapersList(),
+
           ],
         ),
       ),
