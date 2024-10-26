@@ -38,7 +38,9 @@ class WallpaperDetailsActionButtons extends StatelessWidget {
         Consumer<WallpaperDetailsController>(
           builder: (context, value, child) => GestureDetector(
             onTap: () async {
-              await value.downloadImage(imageUrl);
+              if (!value.isLoading) {
+                await value.saveImage(imageUrl);
+              }
             },
             child: const Iconify(
               AntDesign.cloud_download_outlined,

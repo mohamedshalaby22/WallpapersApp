@@ -61,6 +61,10 @@ dependencies:
   shared_preferences: ^2.3.2
   #Hidden secret keys
   flutter_dotenv: ^5.2.1
+  #save image to Gallery
+  saver_gallery: ^4.0.0
+  dio: ^5.7.0
+
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,3 @@
-// To parse this JSON data, do
-//
-//     final homeWallpapersData = homeWallpapersDataFromJson(jsonString);
 
 import 'dart:convert';
 

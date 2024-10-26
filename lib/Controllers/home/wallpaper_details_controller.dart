@@ -1,28 +1,36 @@
-import 'dart:io';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:flutter/services.dart';
+import 'package:saver_gallery/saver_gallery.dart';
 import 'package:wallpapers_app/Views/AppWidgets/snack_bar_widget.dart';
 
 class WallpaperDetailsController extends ChangeNotifier {
-  Future<String> downloadImage(String imageUrl) async {
-    // Get the directory to save the image
-    Directory appDocDir = await getApplicationDocumentsDirectory();
-    String filePath = '${appDocDir.path}/downloaded_image.jpg';
-
-    final response = await http.get(Uri.parse(imageUrl));
-
-    if (response.statusCode == 200) {
-      // Write the image to file
-      File file = File(filePath);
-      await file.writeAsBytes(response.bodyBytes);
+  bool isLoading = false;
+  Future<void> saveImage(String image) async {
+    try {
+      isLoading = true;
+      notifyListeners();
+      final response = await Dio().get(
+        image,
+        options: Options(responseType: ResponseType.bytes),
+      );
+      String picturesPath = "network_image.jpg";
+      final result = await SaverGallery.saveImage(
+        Uint8List.fromList(response.data),
+        quality: 60,
+        fileName: picturesPath,
+        androidRelativePath: "Pictures/NetworkImages",
+        skipIfExists: true,
+      );
       SnackBarWidget.showSnackBarWidget(
           message: 'Image Downloaded Successfully!');
-      return filePath; // Return the file path for further use
-    } else {
+      isLoading = false;
+      notifyListeners();
+    } catch (e) {
+      isLoading = false;
+      notifyListeners();
       SnackBarWidget.showSnackBarWidget(
-          message: 'Failed to download image', backColor: Colors.red[200]!);
-      throw Exception('Failed to download image');
+          message: '$e', backColor: Colors.red[200]!);
     }
   }
 }

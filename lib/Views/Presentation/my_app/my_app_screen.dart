@@ -23,8 +23,7 @@ class MyAppScreen extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => AppLayoutController()),
         ChangeNotifierProvider(create: (context) => HomeController()),
         ChangeNotifierProvider(create: (context) => SearchScreenController()),
-        ChangeNotifierProvider(
-            create: (context) => WallpaperDetailsController()),
+        ChangeNotifierProvider(create: (context) => WallpaperDetailsController()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
